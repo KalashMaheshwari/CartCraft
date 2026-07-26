@@ -7,15 +7,13 @@
 [![Sass](https://img.shields.io/badge/Sass-7--1%20Architecture-CC6699?style=flat-square&logo=sass)](https://sass-lang.com/)
 [![License](https://img.shields.io/badge/License-MIT-green.style=flat-square)](LICENSE)
 
-**CartCraft** is a high-performance, enterprise-grade B2B e-commerce platform and warehouse fulfillment terminal for industrial hardware components (Fasteners, Bearings, Structural Hardware, Electrical, Hydraulics). Built with a clean container/presentational React architecture, zero-dependency ES6 Cart model, hand-configured Webpack 5 + Babel build toolchain, advanced 7-1 SASS design system, and an authentic warm paper/ledger "Component Bin" aesthetic.
+**CartCraft** is a high-performance, enterprise-grade B2B e-commerce platform and warehouse fulfillment terminal for industrial hardware components (Fasteners, Bearings, Structural Hardware, Electrical, Hydraulics). Built with a clean container/presentational React architecture, zero-dependency ES6 Cart model, hand-configured Webpack 5 + Babel build toolchain, advanced 7-1 SASS design system, and modern web performance optimizations.
 
 ---
 
 ## ⚡ Key Features
 
-- 📦 **Industrial Component Bin Catalog** — 100 SKUs procedurally generated across 5 core industrial departments with realistic materials, thread specs, ISO certifications, ratings, stock counts, and compare-at pricing.
-- 🛠️ **Component Bin Cards** — Monospace SKU/bin codes (`BIN #FAST-1002`), CSS-generated barcode strip decorations, and clipped corner monospace price tags.
-- 📋 **Persistent Desktop Cart Ledger** — Side-by-side warehouse cart ledger panel on desktop screens (`width >= 992px`) featuring dashed top borders, dotted line-item leaders, and monospace pricing throughout. Collapses into an interactive sheet on mobile (`width < 768px`).
+- 📦 **Industrial Component Catalog** — 100 SKUs procedurally generated across 5 core industrial departments with realistic materials, thread specs, ISO certifications, ratings, stock counts, and compare-at pricing.
 - ⚡ **Instant Infinite Scroll** — Zero-click automatic product loading powered by `IntersectionObserver` with `800px` pre-fetching for 0 ms perceived scroll latency.
 - 🛒 **In-Card Quantity Stepper** — Interactive `- {qty} in cart +` quantity control directly on component cards when added to cart.
 - 🏷️ **Promo Code & Discount Engine** — Integrated discount calculation supporting `%` off, free shipping, and flat rate discounts (`DEMO10`, `FREESHIP`, `SAVE5`).
@@ -23,6 +21,7 @@
 - 📄 **B2B Checkout & Warehouse Pick Ticket** — Auto-formatted credit card inputs (`4242 4242 4242 4242`), instant order processing, and printable warehouse pick ticket generation.
 - ⚙️ **Faceted Search & Filtering** — Real-time search across Name/SKU/Brand/Spec, multi-range price sliders, rating filters, brand checkboxes, in-stock, fast-dispatch, and clearable active chips.
 - 🚀 **High-Performance Rendering** — Optimized with CSS `content-visibility: auto`, `contain-intrinsic-size`, `decoding="async"`, and native lazy image loading for silky-smooth 60fps rendering.
+- 🎨 **Market-Ready Branding** — Official transparent vector logo mark, inverted browser tab favicons (`favicon.png` & `favicon.ico`), dark-mode compatibility, and enterprise B2B fulfillment guarantee section.
 
 ---
 
@@ -30,7 +29,7 @@
 
 - **Build Pipeline**: Hand-configured **Webpack 5** + **Babel** (`@babel/preset-env`, `@babel/preset-react`, `@babel/preset-typescript`) using `babel-loader` for full JSX/TypeScript transpilation, `MiniCssExtractPlugin` for production CSS extraction, and `CopyWebpackPlugin` for static asset management.
 - **Core Framework**: React 19, TypeScript 5.7
-- **Styling**: Hand-rolled 7-1 SASS/SCSS design system (`_variables.scss` with warm paper/ledger card stock tones `#EDEAE2` / `#F7F5EF` and 0–2px flat industrial radii), Bootstrap 5 Grid Layout
+- **Styling**: Hand-rolled 7-1 SASS/SCSS design system, Bootstrap 5 Grid Layout
 - **State Management**: Framework-agnostic OOJS `Cart` ES6 Model (`models/Cart.js`) backed by `localStorage` persistence
 - **Performance**: Native `IntersectionObserver`, CSS Content Visibility, Async Image Decoding
 
@@ -101,4 +100,3 @@ Try these discount codes in the cart drawer or checkout summary:
 ## 📝 License
 
 This project is open-source under the [MIT License](LICENSE).
-
