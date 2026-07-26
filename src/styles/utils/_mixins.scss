@@ -1,0 +1,19 @@
+@use "../base/variables" as *;
+
+// Refined sans micro-label — small caps tracking, used for category/section
+// labels (replaces the old all-caps mono treatment).
+@mixin micro-label {
+  font-family: $font-body;
+  font-size: 0.6875rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+// Legacy alias kept for any mono data labels (SKU, order no).
+@mixin mono-label {
+  font-family: $font-mono;
+  font-size: $fs-075;
+  letter-spacing: 0.04em;
+  font-weight: 500;
+}

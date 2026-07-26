@@ -1,0 +1,13 @@
+@use "../base/variables" as *;
+
+.cc-promo {
+  background: $ink;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: $fs-075;
+  text-align: center;
+  padding: 7px 12px;
+  letter-spacing: 0.01em;
+}
+.cc-promo__item { font-weight: 500; }
+.cc-promo__item:first-child { color: $accent; }
+.cc-promo__sep { margin: 0 8px; opacity: 0.4; }

@@ -1,0 +1,42 @@
+@use "../base/variables" as *;
+@use "../utils/mixins" as *;
+
+.cc-recent { margin-top: 40px; }
+.cc-recent__title {
+  font-family: $font-display;
+  font-weight: 600;
+  font-size: 1.25rem;
+  color: $ink;
+  margin-bottom: 14px;
+}
+.cc-recent__row {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 176px;
+  gap: 14px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  scrollbar-width: thin;
+}
+.cc-recent__item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: left;
+  background: $surface;
+  border: 1px solid $line;
+  border-radius: $r-md;
+  padding: 10px;
+  transition: transform $dur $ease, box-shadow $dur $ease;
+}
+.cc-recent__item:hover { transform: translateY(-2px); box-shadow: $shadow-sm; }
+.cc-recent__item img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: $r-sm;
+  background: $surface-2;
+}
+.cc-recent__meta { display: flex; flex-direction: column; gap: 4px; }
+.cc-recent__name { font-size: $fs-0875; font-weight: 600; color: $ink; line-height: 1.3; }
+.cc-recent__price { font-family: $font-display; font-weight: 600; color: $ink; }

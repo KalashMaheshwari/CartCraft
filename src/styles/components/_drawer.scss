@@ -1,0 +1,53 @@
+@use "../base/variables" as *;
+
+.cc-drawer { position: fixed; inset: 0; z-index: 75; visibility: hidden; }
+.cc-drawer.is-open { visibility: visible; }
+
+.cc-drawer__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(18, 22, 32, 0.5);
+  backdrop-filter: blur(2px);
+  opacity: 0;
+  transition: opacity $dur $ease;
+}
+.cc-drawer.is-open .cc-drawer__backdrop { opacity: 1; }
+
+.cc-drawer__panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(440px, 100%);
+  background: $surface;
+  box-shadow: $shadow-lg;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(100%);
+  transition: transform 0.28s $ease;
+}
+.cc-drawer.is-open .cc-drawer__panel { transform: none; }
+
+.cc-drawer__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $sp-3;
+  padding: 18px 20px;
+  border-bottom: 1px solid $line;
+}
+.cc-drawer__title { display: block; font-family: $font-display; font-weight: 600; font-size: 1.2rem; color: $ink; }
+.cc-drawer__sub { display: block; font-size: $fs-075; color: $ink-faint; margin-top: 2px; }
+.cc-drawer__close {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: $surface-2;
+  border: 1px solid $line;
+  color: $ink-soft;
+  display: grid;
+  place-items: center;
+  transition: background-color $dur $ease, color $dur $ease;
+}
+.cc-drawer__close:hover { background: $surface-3; color: $ink; }
+.cc-drawer__body { flex: 1; overflow-y: auto; }

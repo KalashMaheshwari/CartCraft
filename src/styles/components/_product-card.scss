@@ -1,0 +1,187 @@
+@use "../base/variables" as *;
+@use "../utils/mixins" as *;
+
+// ---- Bin card (image-forward) -------------------------------
+.cc-card {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 380px;
+  background: $surface;
+  border: 1px solid $line;
+  border-radius: $r-lg;
+  box-shadow: $shadow-xs;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  transition: transform $dur $ease, box-shadow $dur $ease, border-color $dur $ease;
+}
+.cc-card:hover {
+  transform: translateY(-3px);
+  box-shadow: $shadow-md;
+  border-color: #d8dbe0;
+}
+
+.cc-card__media {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  background: $surface-2;
+  overflow: hidden;
+}
+.cc-card__media-btn {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+}
+.cc-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s $ease;
+}
+.cc-card__media-btn:hover .cc-card__img { transform: scale(1.05); }
+
+.cc-card__badges {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  z-index: 2;
+}
+.cc-card__media .cc-fav { position: absolute; top: 10px; right: 10px; z-index: 2; }
+
+.cc-card__qv {
+  position: absolute;
+  left: 50%;
+  bottom: 12px;
+  transform: translate(-50%, 8px);
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(6px);
+  color: $ink;
+  font-size: $fs-075;
+  font-weight: 600;
+  padding: 7px 14px;
+  border-radius: $r-pill;
+  border: 1px solid $line;
+  box-shadow: $shadow-xs;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity $dur $ease, transform $dur $ease;
+}
+.cc-card__media-btn:hover .cc-card__qv {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+.cc-card__body {
+  padding: 14px 16px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  flex: 1;
+}
+.cc-card__brand { @include micro-label; color: $ink-faint; }
+.cc-card__name {
+  font-family: $font-body;
+  font-weight: 600;
+  font-size: $fs-0875;
+  color: $ink;
+  line-height: 1.35;
+}
+.cc-card__pricerow {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 2px;
+}
+.cc-card__amount {
+  font-family: $font-display;
+  font-weight: 600;
+  font-size: $fs-15;
+  color: $ink;
+  letter-spacing: -0.02em;
+}
+.cc-card__compare {
+  text-decoration: line-through;
+  color: $ink-faint;
+  font-size: $fs-0875;
+}
+.cc-card__low {
+  width: 100%;
+  font-size: $fs-075;
+  color: $danger;
+  font-weight: 600;
+}
+
+.cc-card__foot { padding: 0 16px 16px; }
+
+// ---- Primary button -----------------------------------------
+.cc-add {
+  font-family: $font-body;
+  font-weight: 600;
+  font-size: $fs-0875;
+  background: $ink;
+  color: $surface;
+  padding: 11px 18px;
+  border-radius: $r-sm;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  box-shadow: $shadow-xs;
+  transition: transform $dur $ease, background-color $dur $ease, box-shadow $dur $ease;
+}
+.cc-add:hover { background: #2f353f; transform: translateY(-1px); box-shadow: $shadow-sm; }
+.cc-add:active { transform: translateY(0); }
+.cc-add:disabled {
+  background: $surface-3;
+  color: $ink-faint;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+.cc-add--block { width: 100%; }
+.cc-add__plus { font-size: 1.05rem; line-height: 1; opacity: 0.85; }
+
+.cc-card__stepper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 4px;
+  background: $accent-tint;
+  border: 1px solid rgba(224, 159, 62, 0.4);
+  border-radius: $r-sm;
+}
+.cc-card__stepper-btn {
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  background: $surface;
+  border: 1px solid $line;
+  border-radius: $r-sm;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: $ink;
+  cursor: pointer;
+  transition: background-color $dur $ease, border-color $dur $ease;
+}
+.cc-card__stepper-btn:hover {
+  background: $surface-3;
+  border-color: $ink;
+}
+.cc-card__stepper-count {
+  font-family: $font-display;
+  font-weight: 700;
+  font-size: $fs-0875;
+  color: $ink;
+  text-align: center;
+  flex: 1;
+}
+

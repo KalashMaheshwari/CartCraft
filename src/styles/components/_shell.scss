@@ -1,0 +1,27 @@
+@use "../base/variables" as *;
+@use "../utils/mixins" as *;
+
+.cc-app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: $bg;
+}
+
+.cc-shell {
+  flex: 1;
+  width: 100%;
+  max-width: 1320px;
+  margin-inline: auto;
+  padding-top: $sp-6;
+  padding-bottom: $sp-8;
+}
+
+.cc-grid__empty {
+  background: $surface;
+  border: 1px solid $line;
+  border-radius: $r-lg;
+  padding: $sp-9 $sp-4;
+  text-align: center;
+  color: $ink-soft;
+}

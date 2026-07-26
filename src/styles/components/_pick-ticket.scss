@@ -1,0 +1,231 @@
+@use "../base/variables" as *;
+@use "../utils/mixins" as *;
+@use "../utils/breakpoints" as *;
+
+.cc-ticket {
+  background: $surface;
+  border: 1px solid $line;
+  border-radius: $r-lg;
+  box-shadow: $shadow-sm;
+  overflow: hidden;
+}
+
+@include bp-down($bp-lg) {
+  .cc-ticket--aside { display: none; }
+}
+
+.cc-ticket__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $sp-2;
+  padding: $sp-5 $sp-5 $sp-4;
+}
+.cc-ticket__title {
+  font-family: $font-display;
+  font-weight: 600;
+  font-size: $fs-125;
+  color: $ink;
+  letter-spacing: -0.01em;
+}
+.cc-ticket__order { font-family: $font-mono; font-size: $fs-075; color: $ink-faint; }
+
+// ---- Line item ----------------------------------------------
+.cc-line {
+  position: relative;
+  padding: $sp-4 $sp-5 $sp-4 $sp-6;
+  border-bottom: 1px solid $line-soft;
+}
+.cc-line:last-child { border-bottom: 0; }
+.cc-line.is-flash { animation: cc-row-flash 0.9s ease-out; }
+
+.cc-line__top { display: flex; align-items: baseline; justify-content: space-between; gap: $sp-3; }
+.cc-line__name { font-family: $font-body; font-weight: 600; font-size: $fs-0875; color: $ink; line-height: 1.3; }
+.cc-line__total {
+  font-family: $font-display;
+  font-weight: 600;
+  font-size: $fs-1;
+  color: $ink;
+  white-space: nowrap;
+  flex: 0 0 auto;
+}
+.cc-line__bottom { display: flex; align-items: center; gap: $sp-3; margin-top: $sp-3; }
+.cc-line__meta { font-size: $fs-075; color: $ink-faint; font-family: $font-mono; flex: 1 1 auto; }
+.cc-line__remove { font-size: $fs-075; font-weight: 600; color: $ink-soft; transition: color $dur $ease; flex: 0 0 auto; }
+.cc-line__remove:hover { color: $danger; }
+
+// ---- Quantity stepper (pill) --------------------------------
+.cc-stepper {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid $line;
+  border-radius: $r-pill;
+  background: $surface-2;
+}
+.cc-stepper button {
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  color: $ink;
+  font-size: $fs-1;
+  font-weight: 600;
+  line-height: 1;
+  border-radius: $r-pill;
+  transition: background-color $dur $ease;
+}
+.cc-stepper button:hover { background: $surface-3; }
+.cc-stepper__qty { min-width: 24px; text-align: center; font-weight: 600; font-size: $fs-0875; color: $ink; padding: 0 6px; }
+
+// ---- Scan-tick (the one brand moment) -----------------------
+.cc-line__tick {
+  position: absolute;
+  left: $sp-2;
+  top: $sp-4;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: $accent;
+  color: $surface;
+  display: grid;
+  place-items: center;
+  font-size: 0.62rem;
+  font-weight: 700;
+  opacity: 0;
+  transform: scale(0.6);
+}
+.cc-line.is-flash .cc-line__tick { animation: cc-tick-in 200ms $ease forwards; }
+@keyframes cc-tick-in {
+  from { opacity: 0; transform: scale(0.5); }
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes cc-row-flash {
+  0% { background: $accent-tint; }
+  100% { background: transparent; }
+}
+
+// ---- Empty state --------------------------------------------
+.cc-ticket__empty { padding: $sp-7 $sp-5 $sp-6; text-align: center; }
+.cc-ticket__empty p { color: $ink-soft; font-size: $fs-0875; }
+
+// ---- Summary ------------------------------------------------
+.cc-ticket__summary { padding: $sp-4 $sp-5 $sp-5; border-top: 1px solid $line; background: $surface-2; }
+
+.cc-ship { margin-bottom: $sp-4; }
+.cc-ship__label { font-size: $fs-075; color: $ink-soft; margin-bottom: 6px; font-weight: 500; }
+.cc-ship__bar { height: 6px; background: $surface-3; border-radius: $r-pill; overflow: hidden; }
+.cc-ship__bar span { display: block; height: 100%; background: $accent; border-radius: $r-pill; transition: width 0.4s $ease; }
+
+.cc-ticket__sumrow { display: flex; align-items: baseline; justify-content: space-between; padding: 3px 0; font-size: $fs-0875; color: $ink-soft; }
+.cc-ticket__sumrow--discount { color: $success; font-weight: 500; }
+.cc-ticket__sumrow--discount .cc-ticket__sumval { color: $success; font-weight: 600; }
+.cc-ticket__sumval { color: $ink; font-weight: 500; }
+.cc-ticket__sumval.is-free { color: $success; font-weight: 600; }
+
+.cc-promo-section {
+  margin-top: 14px;
+  margin-bottom: 12px;
+}
+.cc-promo-form {
+  display: flex;
+  gap: 8px;
+}
+.cc-promo-form input {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid $line;
+  border-radius: $r-sm;
+  font-size: $fs-0875;
+  background: $surface;
+  color: $ink;
+  transition: border-color $dur $ease;
+}
+.cc-promo-form input:focus {
+  outline: none;
+  border-color: $accent;
+}
+.cc-promo-form button {
+  padding: 8px 14px;
+  border: 1px solid $ink;
+  background: $ink;
+  color: $surface;
+  border-radius: $r-sm;
+  font-size: $fs-0875;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color $dur $ease, opacity $dur $ease;
+}
+.cc-promo-form button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.cc-promo-tag {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  background: $accent-tint;
+  border: 1px solid rgba(224, 159, 62, 0.3);
+  border-radius: $r-sm;
+  font-size: $fs-0875;
+  color: $ink;
+}
+.cc-promo-tag button {
+  background: transparent;
+  border: none;
+  color: $ink-soft;
+  cursor: pointer;
+  font-size: 0.875rem;
+  padding: 2px;
+}
+.cc-promo-tag button:hover { color: $danger; }
+.cc-promo-error {
+  font-size: $fs-075;
+  color: $danger;
+  margin-top: 6px;
+}
+
+.cc-ticket__grand { display: flex; align-items: baseline; justify-content: space-between; padding-top: $sp-4; margin-top: $sp-3; border-top: 1px solid $line; }
+.cc-ticket__grand-label { font-family: $font-body; font-weight: 600; font-size: $fs-0875; color: $ink-soft; }
+.cc-ticket__grand-total { font-family: $font-display; font-weight: 600; font-size: $fs-225; color: $ink; letter-spacing: -0.02em; line-height: 1; }
+
+.cc-ticket__clear { width: 100%; text-align: center; margin-top: $sp-3; font-size: $fs-0875; font-weight: 500; color: $ink-soft; transition: color $dur $ease; }
+.cc-ticket__clear:hover { color: $danger; }
+.cc-ticket__clear:disabled { opacity: 0.5; cursor: not-allowed; }
+
+
+// ---- Mobile collapsible dock --------------------------------
+.cc-ticket--dock { display: none; }
+@include bp-down($bp-lg) {
+  .cc-ticket--dock {
+    display: block;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 50;
+    background: $surface;
+    border: 1px solid $line;
+    border-bottom: 0;
+    border-radius: $r-xl $r-xl 0 0;
+    box-shadow: 0 -8px 28px rgba(24, 28, 40, 0.12);
+  }
+  .cc-ticket__dock-btn { width: 100%; display: flex; align-items: center; gap: $sp-5; padding: $sp-4 $sp-5; }
+  .cc-ticket__dock-stat { display: flex; flex-direction: column; gap: 0; }
+  .cc-ticket__dock-stat .u-label { color: $ink-faint; }
+  .cc-ticket__dock-val { font-family: $font-display; font-weight: 600; font-size: $fs-1125; color: $ink; }
+  .cc-ticket__dock-chev {
+    margin-left: auto;
+    font-family: $font-body;
+    font-weight: 600;
+    font-size: $fs-0875;
+    color: $surface;
+    background: $ink;
+    padding: 9px 16px;
+    border-radius: $r-sm;
+  }
+  .cc-ticket__dock-panel { border-top: 1px solid $line; max-height: 72vh; overflow: auto; }
+}
+.cc-ticket__dock-panel { display: none; }
+.cc-ticket--dock.is-open .cc-ticket__dock-panel { display: block; }
+.cc-ticket__dock-close { font-size: $fs-0875; font-weight: 600; color: $ink-soft; }

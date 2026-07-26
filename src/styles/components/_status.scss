@@ -1,0 +1,48 @@
+@use "../base/variables" as *;
+@use "../utils/mixins" as *;
+@use "../utils/breakpoints" as *;
+
+// Quiet, minimal footer.
+.cc-status {
+  border-top: 1px solid $line;
+  background: $surface;
+}
+.cc-status__inner {
+  display: flex;
+  align-items: center;
+  gap: $sp-5;
+  padding: $sp-4 $sp-6;
+  max-width: 1280px;
+  margin-inline: auto;
+  flex-wrap: wrap;
+}
+.cc-status__item {
+  font-size: $fs-075;
+  color: $ink-soft;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+}
+.cc-status__item--dim {
+  color: $ink-faint;
+}
+.cc-status__brand {
+  font-family: $font-display;
+  font-weight: 600;
+  color: $ink;
+}
+.cc-status__spacer {
+  flex: 1 1 auto;
+}
+.cc-status__led {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: $accent;
+  margin-right: $sp-2;
+}
+
+@include bp-down($bp-lg) {
+  .cc-status { margin-bottom: 56px; }
+}

@@ -1,0 +1,23 @@
+@use "../base/variables" as *;
+
+.cc-stars { display: inline-flex; align-items: center; gap: 6px; }
+.cc-stars__stars {
+  position: relative;
+  display: inline-block;
+  line-height: 1;
+  font-size: 13px;
+  letter-spacing: 2px;
+}
+.cc-stars--md .cc-stars__stars { font-size: 16px; letter-spacing: 2.5px; }
+.cc-stars__track { color: #d7dae0; }
+.cc-stars__fill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  color: #e8a33d;
+}
+.cc-stars__meta { display: inline-flex; align-items: center; gap: 4px; }
+.cc-stars__rating { font-size: 0.8125rem; font-weight: 600; color: $ink; }
+.cc-stars__count { font-size: $fs-075; color: $ink-faint; }

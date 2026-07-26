@@ -1,0 +1,188 @@
+@use "../base/variables" as *;
+@use "../utils/mixins" as *;
+
+// Translucent premium header with a centered search bar.
+.cc-control-bar {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(10px) saturate(1.2);
+  border-bottom: 1px solid $line;
+  position: sticky;
+  top: 0;
+  z-index: 40;
+}
+.cc-control-bar__inner {
+  display: flex;
+  align-items: center;
+  gap: $sp-4;
+  padding: 12px 24px;
+  max-width: 1320px;
+  margin-inline: auto;
+  flex-wrap: wrap;
+}
+
+.cc-control-bar__brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 0 0 auto;
+  text-decoration: none;
+}
+.cc-brand__logo {
+  height: 34px;
+  width: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform $dur $ease, filter $dur $ease;
+}
+.cc-control-bar__brand:hover .cc-brand__logo {
+  transform: translateY(-1px);
+}
+.cc-brand__svg,
+.cc-brand__img {
+  height: 34px;
+  width: auto;
+  max-width: 160px;
+  object-fit: contain;
+  display: block;
+}
+.cc-brand__text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  line-height: 1;
+}
+.cc-brand__title {
+  font-family: $font-display;
+  font-weight: 800;
+  font-size: 1.25rem;
+  letter-spacing: -0.04em;
+  color: $ink;
+}
+.cc-brand__sub {
+  font-family: $font-mono;
+  font-size: 0.55rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: #d9822b;
+  margin-top: 3px;
+  text-transform: uppercase;
+}
+
+
+
+
+.cc-control-bar__search { position: relative; flex: 1 1 360px; min-width: 220px; }
+.cc-search__icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: $ink-faint;
+  stroke-width: 2;
+  pointer-events: none;
+}
+.cc-search__input {
+  width: 100%;
+  padding: 11px 36px 11px 42px;
+  border: 1px solid $line;
+  border-radius: $r-pill;
+  background: $surface-2;
+  font-size: $fs-0875;
+  color: $ink;
+  transition: border-color $dur $ease, background-color $dur $ease, box-shadow $dur $ease;
+}
+.cc-search__input::placeholder { color: $ink-faint; }
+.cc-search__input:focus {
+  outline: none;
+  border-color: $accent;
+  background: $surface;
+  box-shadow: 0 0 0 3px $accent-tint;
+}
+.cc-search__clear {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: transparent;
+  color: $ink-faint;
+  font-size: 0.875rem;
+  padding: 4px;
+  cursor: pointer;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color $dur $ease, background-color $dur $ease;
+}
+.cc-search__clear:hover {
+  color: $ink;
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.cc-control-bar__meta { display: flex; align-items: center; gap: $sp-5; flex: 0 0 auto; }
+.cc-control-bar__icon { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.8; }
+.cc-control-bar__stat {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: $ink-soft;
+  padding: 6px 10px;
+  border: 1px solid transparent;
+  border-radius: $r-pill;
+  transition: background-color $dur $ease, color $dur $ease, border-color $dur $ease;
+}
+.cc-control-bar__stat:hover { background: $surface-2; color: $ink; }
+.cc-control-bar__stat.is-active {
+  background: $accent-tint;
+  color: $ink;
+  border-color: rgba(224, 159, 62, 0.4);
+}
+.cc-control-bar__stat.is-active .cc-control-bar__icon {
+  fill: $accent;
+  stroke: $accent;
+}
+
+.cc-control-bar__statval {
+  font-family: $font-display;
+  font-weight: 600;
+  font-size: $fs-1;
+  color: $ink;
+  min-width: 14px;
+  text-align: center;
+}
+.cc-control-bar__cartcount {
+  display: inline-grid;
+  place-items: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 5px;
+  background: $accent;
+  color: $ink;
+  border-radius: $r-pill;
+  font-weight: 700;
+  font-size: 0.7rem;
+}
+.cc-control-bar__cartlabel { font-size: $fs-0875; font-weight: 500; color: $ink; }
+.cc-control-bar__session {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1px;
+  padding-left: $sp-4;
+  border-left: 1px solid $line;
+}
+.cc-control-bar__session .u-label { color: $ink-faint; }
+.cc-control-bar__order { font-family: $font-mono; font-size: $fs-075; color: $ink; }
+
+@media (max-width: 900px) {
+  .cc-control-bar__session,
+  .cc-control-bar__cartlabel { display: none; }
+}
+@media (max-width: 560px) {
+  .cc-control-bar__wordmark { display: none; }
+}

@@ -1,0 +1,48 @@
+@use "../base/variables" as *;
+
+// Mobile: top-center (below header). Desktop: bottom-right (clear of the dock).
+.cc-toast {
+  position: fixed;
+  top: 86px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 90;
+  pointer-events: none;
+}
+@media (min-width: 1024px) {
+  .cc-toast {
+    top: auto;
+    bottom: 24px;
+    left: auto;
+    right: 24px;
+    transform: none;
+  }
+}
+.cc-toast__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: $ink;
+  color: $surface;
+  padding: 11px 18px;
+  border-radius: $r-md;
+  box-shadow: $shadow-lg;
+  font-size: $fs-0875;
+  font-weight: 500;
+  max-width: 90vw;
+  animation: cc-toast-in 0.25s $ease;
+}
+.cc-toast__icon {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
+  fill: none;
+  stroke: $accent;
+  stroke-width: 2.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+@keyframes cc-toast-in {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: none; }
+}

@@ -1,0 +1,29 @@
+// ============================================================
+// CartCraft — main.scss
+// 7-1-inspired structure. Load order: tokens → base → components.
+// ============================================================
+
+// ---- Base ---------------------------------------------------
+@use "base/variables" as *;
+@use "base/reset";
+@use "base/typography";
+
+// ---- Components --------------------------------------------
+@use "components/promo";
+@use "components/control-bar";
+@use "components/shell";
+@use "components/sidebar";
+@use "components/results";
+@use "components/product-card";
+@use "components/slider";
+@use "components/rating";
+@use "components/badge";
+@use "components/favorite";
+@use "components/pick-ticket";
+@use "components/drawer";
+@use "components/modal";
+@use "components/quickview";
+@use "components/checkout";
+@use "components/recently";
+@use "components/toast";
+@use "components/status";

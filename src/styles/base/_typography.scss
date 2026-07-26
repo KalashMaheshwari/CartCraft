@@ -1,0 +1,36 @@
+@use "../base/variables" as *;
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-display;
+  font-weight: 600;
+  line-height: 1.15;
+  color: $ink;
+}
+
+.u-display { font-family: $font-display; font-weight: 600; }
+.u-mono    { font-family: $font-mono; }
+
+// Small uppercase sans label (paired with the `micro-label` mixin).
+.u-label {
+  font-family: $font-body;
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: $ink-faint;
+}
+
+.cc-display--lg {
+  font-family: $font-display;
+  font-weight: 600;
+  font-size: $fs-175;
+  letter-spacing: -0.02em;
+  color: $ink;
+}
+.cc-display--xl {
+  font-family: $font-display;
+  font-weight: 600;
+  font-size: $fs-225;
+  letter-spacing: -0.02em;
+  color: $ink;
+}

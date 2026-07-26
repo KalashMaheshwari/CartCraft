@@ -1,0 +1,21 @@
+@use "../base/variables" as *;
+
+.cc-fav {
+  display: inline-grid;
+  place-items: center;
+  border-radius: $r-pill;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(6px);
+  border: 1px solid $line;
+  color: $ink-soft;
+  box-shadow: $shadow-xs;
+  transition: color $dur $ease, border-color $dur $ease, transform $dur $ease;
+}
+.cc-fav--sm { width: 30px; height: 30px; }
+.cc-fav--md { width: 38px; height: 38px; }
+.cc-fav svg { fill: none; stroke: currentColor; stroke-width: 2; }
+.cc-fav--sm svg { width: 15px; height: 15px; }
+.cc-fav--md svg { width: 18px; height: 18px; }
+.cc-fav:hover { color: $danger; transform: scale(1.06); }
+.cc-fav.is-active { color: $danger; }
+.cc-fav.is-active svg { fill: $danger; stroke: $danger; }

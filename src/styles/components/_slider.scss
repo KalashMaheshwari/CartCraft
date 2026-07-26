@@ -1,0 +1,52 @@
+@use "../base/variables" as *;
+
+// ============================================================
+// jQuery UI price slider — modern, fully re-themed (no default
+// blue theme). Rounded track, circular handles, accent fill.
+// ============================================================
+
+.cc-price-slider {
+  width: 100%;
+  height: 6px;
+}
+
+.cc-price-slider.ui-slider {
+  position: relative;
+  background: $surface-3;
+  border: 0;
+  border-radius: $r-pill;
+  margin: $sp-5 9px; // room for the circular handles
+}
+
+.cc-price-slider .ui-slider-range {
+  position: absolute;
+  height: 100%;
+  background: $accent;
+  border: 0;
+  border-radius: $r-pill;
+}
+
+.cc-price-slider .ui-slider-handle {
+  position: absolute;
+  top: 50%;
+  width: 18px;
+  height: 18px;
+  background: $surface;
+  border: 1px solid $line;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  cursor: grab;
+  outline: none;
+  box-shadow: $shadow-sm;
+  transition: border-color $dur $ease, box-shadow $dur $ease;
+}
+.cc-price-slider .ui-slider-handle:hover { border-color: $accent; }
+.cc-price-slider .ui-slider-handle.ui-state-active {
+  cursor: grabbing;
+  border-color: $accent;
+  box-shadow: 0 0 0 4px $accent-tint, $shadow-sm;
+}
+.cc-price-slider .ui-slider-handle:focus-visible {
+  border-color: $accent;
+  box-shadow: 0 0 0 4px $accent-tint;
+}

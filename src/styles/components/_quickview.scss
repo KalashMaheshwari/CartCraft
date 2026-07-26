@@ -1,0 +1,81 @@
+@use "../base/variables" as *;
+@use "../utils/mixins" as *;
+
+.cc-qv { display: grid; }
+@media (min-width: 640px) {
+  .cc-qv { grid-template-columns: 1fr 1fr; }
+}
+
+.cc-qv__media { position: relative; background: $surface-2; aspect-ratio: 1 / 1; }
+.cc-qv__media img { width: 100%; height: 100%; object-fit: cover; }
+.cc-qv__badges {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.cc-qv__body { padding: 28px 24px 24px; display: flex; flex-direction: column; gap: 12px; }
+.cc-qv__brand { @include micro-label; color: $info; }
+.cc-qv__name { font-size: 1.375rem; line-height: 1.25; }
+.cc-qv__price { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+.cc-qv__amount {
+  font-family: $font-display;
+  font-weight: 600;
+  font-size: $fs-175;
+  color: $ink;
+  letter-spacing: -0.02em;
+}
+.cc-qv__compare { text-decoration: line-through; color: $ink-faint; font-size: $fs-1; }
+.cc-qv__unit { color: $ink-faint; font-size: $fs-0875; }
+.cc-qv__desc { color: $ink-soft; font-size: $fs-0875; line-height: 1.6; }
+
+.cc-qv__specs { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 4px 0; }
+.cc-qv__specs > div {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 10px 12px;
+  background: $surface-2;
+  border-radius: $r-sm;
+}
+.cc-qv__specs dt { @include micro-label; color: $ink-faint; }
+.cc-qv__specs dd { font-family: $font-mono; font-size: 0.8rem; color: $ink; }
+.cc-qv__specs .is-low { color: $danger; font-weight: 600; }
+
+.cc-qv__actions { display: flex; flex-direction: column; gap: 10px; margin-top: 6px; }
+.cc-qv__row { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.cc-qv__buynow {
+  width: 100%;
+  font-family: $font-body;
+  font-weight: 600;
+  font-size: $fs-0875;
+  background: $accent;
+  color: $ink;
+  padding: 11px 18px;
+  border-radius: $r-sm;
+  box-shadow: $shadow-xs;
+  transition: transform $dur $ease, background-color $dur $ease, box-shadow $dur $ease;
+}
+.cc-qv__buynow:hover { background: $accent-hover; transform: translateY(-1px); box-shadow: $shadow-sm; }
+
+.cc-qv__related { margin-top: 8px; padding-top: 16px; border-top: 1px solid $line-soft; }
+.cc-qv__related-title { @include micro-label; color: $ink-faint; margin-bottom: 10px; }
+.cc-qv__related-row { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); gap: 10px; }
+.cc-qv__rel {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  text-align: left;
+  padding: 8px;
+  border: 1px solid $line;
+  border-radius: $r-sm;
+  background: $surface;
+  transition: border-color $dur $ease, transform $dur $ease;
+}
+.cc-qv__rel:hover { border-color: $ink-faint; transform: translateY(-2px); }
+.cc-qv__rel img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 5px; background: $surface-2; }
+.cc-qv__rel-name { font-size: $fs-075; color: $ink; font-weight: 500; line-height: 1.3; }
+.cc-qv__rel-price { font-family: $font-mono; font-size: $fs-075; color: $ink; font-weight: 600; }
