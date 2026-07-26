@@ -1,18 +1,21 @@
 # 🛠️ CartCraft — Industrial B2B Component Fulfillment Terminal
 
-[![Vite](https://img.shields.io/badge/Vite-7.3.2-646CFF?style=flat-square&logo=vite)](https://vitejs.dev/)
-[![React](https://img.shields.io/badge/React-18.3.1-61DAFB?style=flat-square&logo=react)](https://reactjs.org/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.6-3178C6?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
+[![Webpack](https://img.shields.io/badge/Webpack-5.98-8DD6F9?style=flat-square&logo=webpack)](https://webpack.js.org/)
+[![Babel](https://img.shields.io/badge/Babel-7.26-F9DC3E?style=flat-square&logo=babel)](https://babeljs.io/)
+[![React](https://img.shields.io/badge/React-19.0-61DAFB?style=flat-square&logo=react)](https://reactjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.7-3178C6?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
 [![Sass](https://img.shields.io/badge/Sass-7--1%20Architecture-CC6699?style=flat-square&logo=sass)](https://sass-lang.com/)
-[![License](https://img.shields.io/badge/License-MIT-green.style=flat-square)](#license)
+[![License](https://img.shields.io/badge/License-MIT-green.style=flat-square)](LICENSE)
 
-**CartCraft** is a high-performance, enterprise-grade B2B e-commerce platform and warehouse fulfillment terminal for industrial hardware components (Fasteners, Bearings, Structural Hardware, Electrical, Hydraulics). Built with a clean container/presentational React architecture, zero-dependency ES6 Cart model, advanced SASS design system, and modern web performance optimizations.
+**CartCraft** is a high-performance, enterprise-grade B2B e-commerce platform and warehouse fulfillment terminal for industrial hardware components (Fasteners, Bearings, Structural Hardware, Electrical, Hydraulics). Built with a clean container/presentational React architecture, zero-dependency ES6 Cart model, hand-configured Webpack 5 + Babel build toolchain, advanced 7-1 SASS design system, and an authentic warm paper/ledger "Component Bin" aesthetic.
 
 ---
 
 ## ⚡ Key Features
 
-- 📦 **Industrial Component Catalog** — 100 SKUs procedurally generated across 5 core industrial departments with realistic materials, thread specs, ISO certifications, ratings, stock counts, and compare-at pricing.
+- 📦 **Industrial Component Bin Catalog** — 100 SKUs procedurally generated across 5 core industrial departments with realistic materials, thread specs, ISO certifications, ratings, stock counts, and compare-at pricing.
+- 🛠️ **Component Bin Cards** — Monospace SKU/bin codes (`BIN #FAST-1002`), CSS-generated barcode strip decorations, and clipped corner monospace price tags.
+- 📋 **Persistent Desktop Cart Ledger** — Side-by-side warehouse cart ledger panel on desktop screens (`width >= 992px`) featuring dashed top borders, dotted line-item leaders, and monospace pricing throughout. Collapses into an interactive sheet on mobile (`width < 768px`).
 - ⚡ **Instant Infinite Scroll** — Zero-click automatic product loading powered by `IntersectionObserver` with `800px` pre-fetching for 0 ms perceived scroll latency.
 - 🛒 **In-Card Quantity Stepper** — Interactive `- {qty} in cart +` quantity control directly on component cards when added to cart.
 - 🏷️ **Promo Code & Discount Engine** — Integrated discount calculation supporting `%` off, free shipping, and flat rate discounts (`DEMO10`, `FREESHIP`, `SAVE5`).
@@ -20,15 +23,15 @@
 - 📄 **B2B Checkout & Warehouse Pick Ticket** — Auto-formatted credit card inputs (`4242 4242 4242 4242`), instant order processing, and printable warehouse pick ticket generation.
 - ⚙️ **Faceted Search & Filtering** — Real-time search across Name/SKU/Brand/Spec, multi-range price sliders, rating filters, brand checkboxes, in-stock, fast-dispatch, and clearable active chips.
 - 🚀 **High-Performance Rendering** — Optimized with CSS `content-visibility: auto`, `contain-intrinsic-size`, `decoding="async"`, and native lazy image loading for silky-smooth 60fps rendering.
-- 🎨 **Market-Ready Branding** — Official transparent vector logo mark, inverted browser tab favicons (`favicon.png` & `favicon.ico`), dark-mode compatibility, and enterprise B2B fulfillment guarantee section.
 
 ---
 
-## 💻 Tech Stack
+## 💻 Tech Stack & Build Toolchain
 
-- **Core**: React 18, TypeScript, Vite
-- **Styling**: Hand-rolled 7-1 SASS/SCSS design system, Bootstrap 5 Grid Layout
-- **State Management**: OOJS `Cart` ES6 Model backed by `localStorage` persistence
+- **Build Pipeline**: Hand-configured **Webpack 5** + **Babel** (`@babel/preset-env`, `@babel/preset-react`, `@babel/preset-typescript`) using `babel-loader` for full JSX/TypeScript transpilation, `MiniCssExtractPlugin` for production CSS extraction, and `CopyWebpackPlugin` for static asset management.
+- **Core Framework**: React 19, TypeScript 5.7
+- **Styling**: Hand-rolled 7-1 SASS/SCSS design system (`_variables.scss` with warm paper/ledger card stock tones `#EDEAE2` / `#F7F5EF` and 0–2px flat industrial radii), Bootstrap 5 Grid Layout
+- **State Management**: Framework-agnostic OOJS `Cart` ES6 Model (`models/Cart.js`) backed by `localStorage` persistence
 - **Performance**: Native `IntersectionObserver`, CSS Content Visibility, Async Image Decoding
 
 ---
@@ -43,24 +46,21 @@
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/your-username/cartcraft.git
+git clone https://github.com/KalashMaheshwari/CartCraft.git
 cd cartcraft
 
 # 2. Install dependencies
 npm install
 
-# 3. Start local development server
+# 3. Start local development server (Webpack Dev Server)
 npm run dev      # Server runs at http://localhost:5173
 ```
 
-### Production Build
+### Production Build & Local Preview
 
 ```bash
-# Build production bundle
-npm run build    # Generates single-file production bundle in dist/
-
-# Preview production build locally
-npm run preview
+# Build production bundle with Webpack 5
+npm run build    # Generates minified production bundle in dist/
 ```
 
 ---
