@@ -200,43 +200,40 @@ export default function App() {
       />
 
       <main className="cc-shell container-fluid">
-        <div className="row g-4">
-          <div className="col-12 col-lg-8 col-xl-9 cc-main-col">
-            <ProductListContainer
-              search={search}
-              onClearSearch={() => setSearch("")}
-              favorites={favorites}
-              favOnly={favOnlyFilter}
-              onToggleFavOnly={handleToggleFavFilter}
-              onToggleFav={handleToggleFav}
-              cartMap={cartMap}
-              onInc={handleInc}
-              onDec={handleDec}
-              onQuickView={openQuickView}
-              onAdd={handleAdd}
-            />
-            <RecentlyViewed products={recentProducts} onQuickView={openQuickView} />
-          </div>
-          <div className="col-12 col-lg-4 col-xl-3 cc-cart-col">
-            <CartContainer
-              open={cartOpen}
-              onClose={() => setCartOpen(false)}
-              items={items}
-              orderNo={orderNo}
-              flashId={flashId}
-              flashTick={flashTick}
-              promoCode={promoCode}
-              onInc={handleInc}
-              onDec={handleDec}
-              onRemove={handleRemove}
-              onClear={handleClear}
-              onCheckout={openCheckout}
-              onApplyPromo={handleApplyPromo}
-              onRemovePromo={handleRemovePromo}
-            />
-          </div>
-        </div>
+        <ProductListContainer
+          search={search}
+          onClearSearch={() => setSearch("")}
+          favorites={favorites}
+          favOnly={favOnlyFilter}
+          onToggleFavOnly={handleToggleFavFilter}
+          onToggleFav={handleToggleFav}
+          cartMap={cartMap}
+          onInc={handleInc}
+          onDec={handleDec}
+          onQuickView={openQuickView}
+          onAdd={handleAdd}
+        />
+        <RecentlyViewed products={recentProducts} onQuickView={openQuickView} />
       </main>
+
+      <StatusFooter inventoryCount={PRODUCTS.length} />
+
+      <CartContainer
+        open={cartOpen}
+        onClose={() => setCartOpen(false)}
+        items={items}
+        orderNo={orderNo}
+        flashId={flashId}
+        flashTick={flashTick}
+        promoCode={promoCode}
+        onInc={handleInc}
+        onDec={handleDec}
+        onRemove={handleRemove}
+        onClear={handleClear}
+        onCheckout={openCheckout}
+        onApplyPromo={handleApplyPromo}
+        onRemovePromo={handleRemovePromo}
+      />
 
       <QuickViewContainer
         product={quickView}

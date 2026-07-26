@@ -39,65 +39,34 @@ const CartContainer: FC<Props> = (props) => {
   }, [props.open, props.onClose]);
 
   return (
-    <>
-      {/* Desktop Persistent Ledger Panel */}
-      <aside className="cc-desktop-ledger" aria-label="Warehouse Cart Ledger">
-        <div className="cc-ticket">
-          <div className="cc-ticket__head">
-            <div>
-              <span className="cc-ticket__title">Warehouse Cart Ledger</span>
-              <span className="cc-ticket__order">{count} {count === 1 ? "item" : "items"} · {props.orderNo}</span>
-            </div>
+    <div className={"cc-drawer" + (props.open ? " is-open" : "")} aria-hidden={!props.open}>
+      <div className="cc-drawer__backdrop" onClick={props.onClose} />
+      <aside className="cc-drawer__panel" role="dialog" aria-modal="true" aria-label="Your cart">
+        <div className="cc-drawer__head">
+          <div>
+            <span className="cc-drawer__title">Your Cart</span>
+            <span className="cc-drawer__sub">{count} {count === 1 ? "item" : "items"} · {props.orderNo}</span>
           </div>
-          <div className="cc-ticket__body">
-            <PickTicketBody
-              items={props.items}
-              flashId={props.flashId}
-              flashTick={props.flashTick}
-              totals={totals}
-              count={count}
-              onInc={props.onInc}
-              onDec={props.onDec}
-              onRemove={props.onRemove}
-              onCheckout={props.onCheckout}
-              onClear={props.onClear}
-              onApplyPromo={props.onApplyPromo}
-              onRemovePromo={props.onRemovePromo}
-            />
-          </div>
+          <button className="cc-drawer__close" onClick={props.onClose} aria-label="Close cart">✕</button>
+        </div>
+        <div className="cc-drawer__body">
+          <PickTicketBody
+            items={props.items}
+            flashId={props.flashId}
+            flashTick={props.flashTick}
+            totals={totals}
+            count={count}
+            onInc={props.onInc}
+            onDec={props.onDec}
+            onRemove={props.onRemove}
+            onCheckout={props.onCheckout}
+            onClear={props.onClear}
+            onApplyPromo={props.onApplyPromo}
+            onRemovePromo={props.onRemovePromo}
+          />
         </div>
       </aside>
-
-      {/* Mobile Collapsible Sheet */}
-      <div className={"cc-drawer" + (props.open ? " is-open" : "")} aria-hidden={!props.open}>
-        <div className="cc-drawer__backdrop" onClick={props.onClose} />
-        <aside className="cc-drawer__panel" role="dialog" aria-modal="true" aria-label="Your cart">
-          <div className="cc-drawer__head">
-            <div>
-              <span className="cc-drawer__title">Warehouse Cart Ledger</span>
-              <span className="cc-drawer__sub">{count} {count === 1 ? "item" : "items"} · {props.orderNo}</span>
-            </div>
-            <button className="cc-drawer__close" onClick={props.onClose} aria-label="Close cart">✕</button>
-          </div>
-          <div className="cc-drawer__body">
-            <PickTicketBody
-              items={props.items}
-              flashId={props.flashId}
-              flashTick={props.flashTick}
-              totals={totals}
-              count={count}
-              onInc={props.onInc}
-              onDec={props.onDec}
-              onRemove={props.onRemove}
-              onCheckout={props.onCheckout}
-              onClear={props.onClear}
-              onApplyPromo={props.onApplyPromo}
-              onRemovePromo={props.onRemovePromo}
-            />
-          </div>
-        </aside>
-      </div>
-    </>
+    </div>
   );
 };
 

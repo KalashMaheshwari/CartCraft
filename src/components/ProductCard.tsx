@@ -32,11 +32,6 @@ const ProductCard: FC<Props> = ({
 
   return (
     <article className="cc-card">
-      <div className="cc-card__bin-header">
-        <span className="cc-card__sku">BIN #{product.sku}</span>
-        <span className="cc-card__barcode" aria-hidden="true" title={`Barcode ${product.sku}`} />
-      </div>
-
       <div className="cc-card__media">
         <button className="cc-card__media-btn" onClick={() => onQuickView(product)} aria-label={`Quick view ${product.name}`}>
           <img className="cc-card__img" src={product.image} alt={product.name} loading="lazy" decoding="async" />
@@ -56,7 +51,7 @@ const ProductCard: FC<Props> = ({
         <h3 className="cc-card__name">{product.name}</h3>
         <RatingStars rating={product.rating} reviews={product.reviews} />
         <div className="cc-card__pricerow">
-          <span className="cc-card__price-tag">{money(product.price)}</span>
+          <span className="cc-card__amount">{money(product.price)}</span>
           {product.compareAt && <span className="cc-card__compare">{money(product.compareAt)}</span>}
           {low && <span className="cc-card__low">Only {product.stock} left</span>}
         </div>

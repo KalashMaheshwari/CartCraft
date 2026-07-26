@@ -17,7 +17,6 @@ const PickTicketItem: FC<Props> = ({ product, quantity, onInc, onDec, onRemove, 
     <span key={flashTick} className="cc-line__tick" aria-hidden="true">✓</span>
     <div className="cc-line__top">
       <span className="cc-line__name">{product.name}</span>
-      <span className="cc-line__leader" aria-hidden="true" />
       <span className="cc-line__total">{money(product.price * quantity)}</span>
     </div>
     <div className="cc-line__bottom">

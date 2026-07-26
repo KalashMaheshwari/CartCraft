@@ -13,45 +13,12 @@
   flex-direction: column;
   height: 100%;
   overflow: hidden;
-  transition: border-color $dur $ease;
+  transition: transform $dur $ease, box-shadow $dur $ease, border-color $dur $ease;
 }
 .cc-card:hover {
-  border-color: $ink;
-}
-
-.cc-card__bin-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 6px 12px;
-  background: $surface-2;
-  border-bottom: 1px solid $line;
-}
-.cc-card__sku {
-  font-family: $font-mono;
-  font-size: 0.7rem;
-  font-weight: 600;
-  color: $ink-soft;
-  letter-spacing: 0.04em;
-}
-.cc-card__barcode {
-  display: block;
-  height: 12px;
-  width: 54px;
-  background: repeating-linear-gradient(
-    90deg,
-    $ink 0px,
-    $ink 1px,
-    transparent 1px,
-    transparent 2px,
-    $ink 2px,
-    $ink 4px,
-    transparent 4px,
-    transparent 6px,
-    $ink 6px,
-    $ink 8px
-  );
-  opacity: 0.75;
+  transform: translateY(-3px);
+  box-shadow: $shadow-md;
+  border-color: #d8dbe0;
 }
 
 .cc-card__media {
@@ -132,16 +99,12 @@
   flex-wrap: wrap;
   margin-top: 2px;
 }
-.cc-card__price-tag {
-  display: inline-block;
-  font-family: $font-mono;
-  font-weight: 700;
-  font-size: 1.15rem;
+.cc-card__amount {
+  font-family: $font-display;
+  font-weight: 600;
+  font-size: $fs-15;
   color: $ink;
-  background: $accent-soft;
-  border: 1px solid $line;
-  padding: 2px 10px 2px 8px;
-  clip-path: polygon(0 0, 100% 0, 100% 68%, 88% 100%, 0 100%);
+  letter-spacing: -0.02em;
 }
 .cc-card__compare {
   text-decoration: line-through;

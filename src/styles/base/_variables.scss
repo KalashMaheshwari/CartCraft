@@ -4,30 +4,30 @@
 // ============================================================
 
 // ---- Ink / text ---------------------------------------------
-$ink:        #181C28; // primary text — deep industrial slate
-$ink-soft:   #4A5264; // secondary text
-$ink-faint:  #788296; // tertiary / hints
+$ink:        #23272F; // primary text — deep slate
+$ink-soft:   #677084; // secondary text
+$ink-faint:  #98A0AE; // tertiary / hints
 
-// ---- Surfaces (warm paper/ledger tones) ---------------------
-$bg:         #EDEAE2; // app background — warm paper ledger board
-$surface:    #F7F5EF; // cards / raised surfaces — crisp card stock
-$surface-2:  #EBE7DD; // subtle alt surfaces (media tiles, inputs)
-$surface-3:  #E2DDD0; // chips / hover fills
+// ---- Surfaces -----------------------------------------------
+$bg:         #F3F4F7; // app background — soft cool neutral
+$surface:    #FFFFFF; // cards / panels
+$surface-2:  #F7F8FA; // subtle alt surfaces (media tiles, inputs)
+$surface-3:  #EEF0F4; // chips / hover fills
 
-// ---- Lines (hairline borders) -------------------------------
-$line:       #CFC9BA; // primary ledger hairline rules
-$line-soft:  #DDD8CC;
+// ---- Lines --------------------------------------------------
+$line:       #E6E8ED; // hairlines
+$line-soft:  #EFF1F5;
 
-// ---- Accent (amber/honey) -----------------------------------
-$accent:        #D9822B; // primary highlight (range fill, scan-tick, active)
-$accent-hover:  #C47322;
-$accent-ink:    #181C28; // text on light accent
-$accent-soft:   #F5ECD9; // accent tint background
-$accent-tint:   rgba(217, 130, 43, 0.16);
+// ---- Accent (honey/amber) — used sparingly ------------------
+$accent:        #D38730; // primary highlight (range fill, scan-tick, active)
+$accent-hover:  #BE7724;
+$accent-ink:    #23272F; // text on light accent
+$accent-soft:   #FBF1E4; // accent tint background
+$accent-tint:   rgba(211, 135, 48, 0.16);
 
 // ---- Secondary (info / SKU / links) -------------------------
 $info:        #3F5B7C;
-$info-soft:   #E4EBF3;
+$info-soft:   #EAF0F6;
 
 // ---- Danger -------------------------------------------------
 $danger:        #C0493D;
@@ -37,19 +37,19 @@ $danger-soft:   #F8ECEA;
 $success:       #2E7D5B;
 $success-soft:  #E5F2EC;
 
-// ---- Radii (industrial flat 0-2px scale) --------------------
-$r-xs:   0px;
-$r-sm:   1px;
-$r-md:   2px;
-$r-lg:   2px;
-$r-xl:   2px;
-$r-pill: 2px;
+// ---- Radii (consistent premium scale) -----------------------
+$r-xs:   6px;
+$r-sm:   8px;
+$r-md:   12px;
+$r-lg:   16px;
+$r-xl:   20px;
+$r-pill: 999px;
 
-// ---- Elevation (hairline separation, no soft shadows) -------
-$shadow-xs: none;
-$shadow-sm: none;
-$shadow-md: none;
-$shadow-lg: none;
+// ---- Elevation (subtle, never harsh) ------------------------
+$shadow-xs: 0 1px 2px rgba(24, 28, 40, 0.05);
+$shadow-sm: 0 1px 2px rgba(24, 28, 40, 0.04), 0 4px 12px rgba(24, 28, 40, 0.05);
+$shadow-md: 0 2px 4px rgba(24, 28, 40, 0.05), 0 12px 28px rgba(24, 28, 40, 0.09);
+$shadow-lg: 0 8px 18px rgba(24, 28, 40, 0.08), 0 24px 48px rgba(24, 28, 40, 0.12);
 
 // ---- Typography ---------------------------------------------
 $font-display: "Space Grotesk", "IBM Plex Sans", system-ui, sans-serif;

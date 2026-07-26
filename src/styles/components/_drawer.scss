@@ -1,14 +1,6 @@
 @use "../base/variables" as *;
-@use "../utils/breakpoints" as *;
 
-.cc-desktop-ledger { display: block; position: sticky; top: 84px; z-index: 10; }
-.cc-drawer { display: none; position: fixed; inset: 0; z-index: 75; visibility: hidden; }
-
-@include bp-down($bp-lg) {
-  .cc-desktop-ledger { display: none; }
-  .cc-drawer { display: block; }
-}
-
+.cc-drawer { position: fixed; inset: 0; z-index: 75; visibility: hidden; }
 .cc-drawer.is-open { visibility: visible; }
 
 .cc-drawer__backdrop {
